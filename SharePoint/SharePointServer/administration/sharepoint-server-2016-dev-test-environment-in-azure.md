@@ -106,7 +106,7 @@ $rgName="<resource group name>"
 # Get the location
 $locName=(Get-AzureRmResourceGroup -Name $rgName).Location
 # Create an availability set for domain controller virtual machines
-New-AzureRMAvailabilitySet -Name dcAvailabilitySet -ResourceGroupName $rgName -Location $locName
+New-AzureRMAvailabilitySet -Name dcAvailabilitySet -ResourceGroupName $rgName -Location $locName -Sku Aligned -PlatformUpdateDomainCount 5 -PlatformFaultDomainCount 2
 # Create the adVM virtual machine
 $vmName="adVM"
 $vmSize="Standard_D1_v2"
@@ -203,7 +203,7 @@ $rgName="<your resource group name>"
 Get-AzureRmSubscription -Name $subscrName | Select-AzureRmSubscription
 $locName=(Get-AzureRmResourceGroup -Name $rgName).Location
 # Create an availability set for SQL Server virtual machines
-New-AzureRMAvailabilitySet -Name sqlAvailabilitySet -ResourceGroupName $rgName -Location $locName
+New-AzureRMAvailabilitySet -Name sqlAvailabilitySet -ResourceGroupName $rgName -Location $locName -Sku Aligned -PlatformUpdateDomainCount 5 -PlatformFaultDomainCount 2
 # Create the SQL Server virtual machine
 $vmName="sqlVM"
 $vmSize="Standard_D3_V2"
@@ -307,7 +307,7 @@ Get-AzureRmSubscription -Name $subscrName | Select-AzureRmSubscription
 # Get the location
 $locName=(Get-AzureRmResourceGroup -Name $rgName).Location
 # Create an availability set for SharePoint virtual machines
-New-AzureRMAvailabilitySet -Name spAvailabilitySet -ResourceGroupName $rgName -Location $locName
+New-AzureRMAvailabilitySet -Name spAvailabilitySet -ResourceGroupName $rgName -Location $locName -Sku Aligned -PlatformUpdateDomainCount 5 -PlatformFaultDomainCount 2
 # Create the spVM virtual machine
 $vmName="spVM"
 $vmSize="Standard_D3_V2"
